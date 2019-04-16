@@ -1,0 +1,16 @@
+{
+  "CN": "system:node:tuf1",
+  "key": {
+      "algo": "rsa",
+      "size": 2048
+  },
+  "names": [
+      {
+          "C": "TH",
+          "L": "Nonthaburi",
+          "ST": "Nonthaburi",
+          "O": "system:nodes",
+          "OU": "Kubernetes The Hard Way"
+      }
+  ]
+}
