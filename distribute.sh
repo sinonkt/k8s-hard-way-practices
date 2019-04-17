@@ -20,7 +20,8 @@ do
     scp ca/ca.pem workers/${Node}-key.pem workers/${Node}.pem vagrant@${Node}:~/
     scp workers/${Node}.kubeconfig kube-proxy.kubeconfig vagrant@${Node}:~/
 
-    cat bootstrap_workers.sh.tmpl | sed -e "s@###HOSTNAME@$Node@g" -e "s@###POD_CIDR@$PodCIDR@g" | tee workers/${Node}_bootstrap_workers.sh
+    cat bootstrap_workers.sh.tmpl | sed -e "s@###HOSTNAME@$Node@g" -e "s@###POD_CIDR@$PodCIDR@g" -e "s@###NODE_INTERNAL_IP@$InternalIp@g" | tee workers/${Node}_bootstrap_workers.sh
     scp workers/${Node}_bootstrap_workers.sh vagrant@${Node}:~/bootstrap_workers.sh
   fi
+  scp hosts vagrant@${Node}:~/
 done < inventory.csv

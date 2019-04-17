@@ -1,3 +1,4 @@
+sudo bash -c "cat hosts >> /etc/hosts"
 sudo yum install -y wget
 wget -q --timestamping https://github.com/coreos/etcd/releases/download/v3.3.9/etcd-v3.3.9-linux-amd64.tar.gz
 tar -xvf etcd-v3.3.9-linux-amd64.tar.gz

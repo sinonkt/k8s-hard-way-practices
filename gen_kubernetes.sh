@@ -32,7 +32,7 @@ cfssl gencert \
   -ca=ca/ca.pem \
   -ca-key=ca/ca-key.pem \
   -config=ca/ca-config.json \
-  -hostname=${joinedExternalIPs},${joinedInternalIPs},127.0.0.1,kubernetes.default \
+  -hostname=${joinedExternalIPs},${joinedInternalIPs},127.0.0.1,10.32.0.1,kubernetes.default \
   -profile=kubernetes \
   kubernetes-csr.json | cfssljson -bare kubernetes
 #*****************************************************************************

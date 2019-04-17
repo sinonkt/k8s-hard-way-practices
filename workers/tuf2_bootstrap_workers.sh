@@ -1,4 +1,5 @@
 HOSTNAME=tuf2
+NODE_INTERNAL_IP=192.168.85.102
 POD_CIDR=10.200.2.0/24
 sudo yum install -y update 
 sudo yum install -y socat conntrack ipset
@@ -142,6 +143,8 @@ ExecStart=/usr/local/bin/kubelet \\
   --kubeconfig=/var/lib/kubelet/kubeconfig \\
   --network-plugin=cni \\
   --register-node=true \\
+  --node-ip=${NODE_INTERNAL_IP} \\
+  --pod-cidr=${POD_CIDR} \\
   --v=2
 Restart=on-failure
 RestartSec=5
